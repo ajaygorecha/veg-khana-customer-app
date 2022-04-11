@@ -1,0 +1,17 @@
+<ion-content no-bounce has-bouncing="false" forceOverscroll="false">
+	<div class="almosttherehead">
+		{{wrt_your_review}}<br><span>{{trnslt.logi_or_signup}}</span>
+	</div>
+	<div class="ratngstar">
+		<span *ngFor="let item of allstar" (click)='getnowrate(item)'><ion-icon name="{{item.icon}}"></ion-icon></span>
+		
+	</div>
+	<div class="loginmobilefieldreg">
+		<label>{{trnslt.tp_your_review}}</label>
+		<input type="email" [(ngModel)]="reviewtxt">
+	</div>
+	<div class="continuebtn" (click)='btnfrewview()'>
+		{{updbtn}}
+	</div>
+	
+</ion-content>

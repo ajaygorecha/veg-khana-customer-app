@@ -1,0 +1,40 @@
+.cateringlogo{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	img{
+		width: 70%;
+		margin: 30px auto;
+	}
+}
+
+.contactlist{
+	width: 100%;
+	height: auto;
+	ul{
+		margin: 0;
+		padding: 0;
+		li{
+			list-style: none;
+		    padding: 15px 10px;
+		    background-color: #fff;
+		    margin-bottom: 10px;
+		    position: relative;
+		    padding-left: 45px;
+		    font-size: 15px;
+			ion-icon{
+				position: absolute;
+			    left: 12px;
+			    top: 14px;
+			    font-size: 18px;
+			}
+			img{
+				position: absolute;
+			    left: 7px;
+			    top: 10px;
+			    font-size: 18px;
+			    height: 30px;
+			}
+		}
+	}
+}

@@ -1,0 +1,42 @@
+.itemvariation{
+	width: 100%;
+	height: auto;
+	ul{
+		margin: 0;
+		padding: 0;
+		li{
+			list-style: none;
+			padding: 12px 10px;
+    		border-bottom: solid 1px #f5f5f5;
+			span{
+				float: right;
+			}
+			input{
+				background-color: #fff;
+				height: 17px;
+				width: 17px;
+				margin-right: 10px;
+			}
+		}
+	}
+	.catnamehead{
+		text-align: center;
+	    font-size: 14px;
+	    font-weight: bold;
+	    padding: 20px 0 0 0;
+	}
+}
+.adcrtftr{
+	text-align: center;
+	background-color: #318630;
+	line-height: 50px;
+	text-transform: uppercase;
+	font-size: 12px;
+	color: #fff
+}
+.drop ul{
+	display: none;
+}
+.drop.activedrop ul{
+	display: block;
+}

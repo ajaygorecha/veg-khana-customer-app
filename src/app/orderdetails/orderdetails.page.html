@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar class="header-background-color">
+  	 <ion-back-button (click)="BackButtonAction()" slot="start"></ion-back-button>
+    <ion-title class="heaerfont">{{trnslt.order_details}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+	<div class="tyanksnew" *ngIf="isNeword">
+		{{trnslt.thanks_for_order}}
+	</div>
+	<div class="ordersummry">
+		<div class="summryleft">
+			<ul>
+				{{trnslt.summary}}
+				<li>{{trnslt.order}} # <span>{{ordltls?.orderid}}</span></li>
+				<li>{{trnslt.order_date}} <span>{{ordltls?.order_date}}</span></li>
+				<li *ngIf='ordltls?.del_date'>{{trnslt.delivery_date}} <span>{{ordltls?.del_date}}</span></li>
+				<li>{{trnslt.del_time}} <span>{{ordltls?.order_time}}</span></li>
+				<li>{{trnslt.total}} <span><code [innerHTML]='getappsetng?.currency_symbol'></code>{{ordltls?.total_pay}}</span></li>
+			</ul>
+		</div>
+		<div class="summryright">
+			<ul>
+				{{ordltls?.ttxtsmry}}
+				<li>{{logedUser.name}}</li>
+				<li>+44-{{logedUser.mobile}}</li>
+				<li>{{ordltls?.blspaddress}}</li>
+
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+	<div class="productheadlist">
+		<ul>
+			<li class="item">{{trnslt.item}}</li>
+			<li class="qty">{{trnslt.price}}</li>
+			<li class="price">{{trnslt.total}}</li>
+			<div class="clear"></div>
+		</ul>
+	</div>
+	<div class="producdesclist">
+		<ul *ngFor="let item of ordltls?.products">
+			<li class="item">{{item.qty}} x {{item.item_name}}
+				<div style="padding-left: 19px; color: #382fbb;" class="optnitm" *ngFor="let optn of item.options">{{optn.name}} (<code [innerHTML]='getappsetng?.currency_symbol'></code>{{optn.total}})</div>
+				<div style="padding-left: 19px; color: #382fbb;" class="optnitm" *ngFor="let mld of item.mealdeal">{{mld.name}} (<code [innerHTML]='getappsetng?.currency_symbol'></code>{{mld.total}})</div>
+			</li>
+			<li class="qty"><code [innerHTML]='getappsetng?.currency_symbol'></code>{{item.item_price}}</li>
+			<li class="price"><code [innerHTML]='getappsetng?.currency_symbol'></code>{{item.itm_final_total}}
+				<!-- <div class="optnitm" *ngFor="let optn of item.options"><code [innerHTML]='getappsetng?.currency_symbol'></code>{{optn.total}}</div> -->
+				<!-- <div class="optnitm" *ngIf="item.opttotal > 0"><code [innerHTML]='getappsetng?.currency_symbol'></code>{{item.itm_final_total}}</div> -->
+			</li>
+			<div class="clear"></div>
+		</ul>
+	</div>
+
+	<div class="pricecalc">
+		<ul>
+			<li>{{trnslt.subtotal}} <span><code [innerHTML]='getappsetng?.currency_symbol'></code>{{ordltls?.cart_total}}</span></li>
+			<li *ngIf='ordltls?.offer_text'>{{ordltls?.offer_text}} <span><code [innerHTML]='getappsetng?.currency_symbol'></code>{{ordltls?.offer_amount}}</span></li>
+			<li *ngIf="del_sct">{{trnslt.delvery}} <span [innerHTML]='del_sct'></span></li>
+			<li *ngIf="ordltls?.pre_order_delivery">{{trnslt.pre_ord_del}} <span><code [innerHTML]='getappsetng?.currency_symbol'></code>{{ordltls?.pre_order_delivery}}</span></li>
+			<li *ngIf="ordltls?.adnl_lebel_one">{{ordltls?.adnl_lebel_one}} <span><code [innerHTML]='getappsetng?.currency_symbol'></code>{{ordltls?.adnl_value_one}}</span></li>
+			<li *ngIf="ordltls?.adnl_lebel_two">{{ordltls?.adnl_lebel_two}} <span><code [innerHTML]='getappsetng?.currency_symbol'></code>{{ordltls?.adnl_value_two}}</span></li>
+			<li *ngIf="ordltls?.adnl_lebel_three">{{ordltls?.adnl_lebel_three}} <span><code [innerHTML]='getappsetng?.currency_symbol'></code>{{ordltls?.adnl_value_three}}</span></li>
+			<li *ngIf="ordltls?.tax_lebel">{{ordltls?.tax_lebel}} <span><code [innerHTML]='getappsetng?.currency_symbol'></code>{{ordltls?.tax_value}}</span></li>
+			<li>{{trnslt.total}} <span><code [innerHTML]='getappsetng?.currency_symbol'></code>{{ordltls?.total_pay}}</span></li>
+			
+			<li *ngIf="ordltls?.usewallet == 'YES'">{{trnslt.use_wallet}} <span>- <code [innerHTML]='getappsetng?.currency_symbol'></code>{{ordltls?.walletminus}}</span></li>
+			<li *ngIf="ordltls?.usewallet == 'YES'">{{trnslt.total_pay}} <span>{{iswaltpayamount}}</span></li>
+			
+			
+		</ul>
+	</div>
+</ion-content>

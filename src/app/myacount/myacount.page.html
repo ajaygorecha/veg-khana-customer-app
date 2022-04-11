@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar class="header-background-color">
+  	 <ion-back-button slot="start"></ion-back-button>
+    <ion-title class="heaerfont">{{title}}</ion-title>
+    <ion-buttons slot="end" (click)='logout()'>
+      <ion-icon name="log-out-outline" clas='headerrighticon'></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+	<div class="padcontr">
+		<div class="sectiondiv" (click)='opnprofileupdate()' *ngIf="isMyacnt">
+			<div class="sechead">
+				{{logeduser.name}} <span>{{trnslt.edit}}</span>
+			</div>
+			<div class="secdesc">
+				{{mobprfx}}-{{logeduser.mobile}} {{logeduser.email}}
+			</div>
+		</div>
+		<div class="sectiondiv" (click)='goaddress()' *ngIf="isMyacnt">
+			<div class="iconleft"><ion-icon name="map-outline"></ion-icon></div>
+			<!-- <ion-icon name="chevron-forward-outline"></ion-icon> -->
+			<div class="sechead">
+				{{trnslt.adds_book}}
+			</div>
+			<div class="secdesc">
+				{{trnslt.mange_my_address}}
+			</div>
+		</div>
+
+		<div class="sectiondiv" (click)='gowlt()' *ngIf="isWallert">
+			<div class="iconleft"><ion-icon name="wallet-outline"></ion-icon></div>
+			<!-- <ion-icon name="chevron-forward-outline"></ion-icon> -->
+			<div class="sechead">
+				{{trnslt.walt_credits}}
+			</div>
+			<div class="secdesc">
+				{{trnslt.ref_code_crd_hsto}}
+			</div>
+		</div>
+
+		
+
+		<div class="sectiondiv">
+			<div class="sechead">
+				{{trnslt.oder_history}}
+			</div>
+			<div class="secordprice" *ngFor="let ord of ords">
+				<span class="deliverdgreen">{{ord.order_status}}<ion-icon *ngIf="ord.order_status == 'Delivered'" name="checkmark-outline"></ion-icon></span>
+				<b *ngFor="let itm of ord.prd" (click)='viewordertls(ord.orderid)'>{{itm.item_name}} x {{itm.qty}}, </b><br>
+				<span>{{ord.orddate}}, {{ord.ordtime}}</span><br>
+				<div class="pricespn">{{ord.iswaltpayamount}}</div>
+				<!-- <div class="reorderbtn"><span>Reorder</span></div> -->
+			</div>
+		</div>
+		<div class="sectiondiv">
+			<div class="sechead">
+				{{trnslt.table_booking}}
+			</div>
+			<div class="secordprice" *ngFor="let bft of bffets">
+				<span class="deliverdgreen">{{bft.status}}<ion-icon *ngIf="bft.status == 'Delivered'" name="checkmark-outline"></ion-icon></span>
+				<strong>{{bft.booking_id}}</strong><br>
+				<b>{{trnslt.no_of_person}} {{bft.nop}}</b><br>
+				<span>{{trnslt.book_on}} {{bft.bookdate}}, {{bft.booktime}}</span>
+			</div>
+		</div>
+	</div>
+</ion-content>

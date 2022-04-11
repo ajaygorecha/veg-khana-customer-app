@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar class="header-background-color">
+  	 <ion-back-button (click)="BackButtonAction()" slot="start"></ion-back-button>
+    <ion-title class="heaerfont">{{trnslt.checkout}}</ion-title>
+    <ion-buttons slot="end" (click)='editcart()'>
+    	<ion-icon name="create-outline" clas='headerrighticon'></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+	 <div *ngIf='!cartcount' class="notcartitm">
+	 	<img src="assets/shoppingEmpty.png">
+	 </div>
+	<div class="padcontr" *ngIf='cartcount'>
+		<div class="itemlists" *ngFor="let item of mycart">
+			<div class="nameanddesc {{item.xtras}}">
+				{{item.name}} - <code [innerHTML]='getappsetng?.currency_symbol'></code>{{item.itmOnly}}<br><span>{{item.productDesc}}</span>
+				<span class="preorder" *ngIf="item.preorder"><br>{{trnslt.this_is_pre_ord_itm}} ({{item.pre_time}})</span>
+			</div>
+			<div class="qtybox" *ngIf='!item.xtras'>
+				<span class="minusbtn">&nbsp;</span>
+				<span class="qtyvalue" id="itmqtyval_{{item.id}}">{{item.qty}}</span>
+				<span class="plsvalue">&nbsp;</span>
+			</div>
+			<div class="totalitm">
+				<code [innerHTML]='getappsetng?.currency_symbol'></code>{{item.item_sub_total}}
+			</div>
+			<div class="clear"></div>
+			<div class="selecttions" *ngFor="let slc of item.selections">
+				<div class="optname">{{slc.name}} (<span [innerHTML]='getappsetng?.currency_symbol'></span>{{slc.total}})</div>
+				<!-- <div class="optprice">+<span [innerHTML]='getappsetng?.currency_symbol'></span>{{slc.price}}</div> -->
+			</div>
+			<div class="selecttions" *ngFor="let mld of item.mealdeal">
+				<div class="optname">{{mld.name}} (<span [innerHTML]='getappsetng?.currency_symbol'></span>{{mld.total}})</div>
+				<!-- <div class="optprice">+<span [innerHTML]='getappsetng?.currency_symbol'></span>{{slc.price}}</div> -->
+			</div>
+			<!-- <div *ngIf='item.isoptn' class="ifselction">Total: <span [innerHTML]='getappsetng?.currency_symbol'></span>{{item.item_sub_total}}</div> -->
+			<!--  -->
+		</div>
+		<div class="ifanythonote" *ngIf='extrnote'>
+			<ion-icon name="newspaper-outline"></ion-icon> {{extrnote}}
+		</div>
+
+		<div class="appcoupncd">
+			<img src="assets/delivery_icon.png"> {{del_time}}:  {{chsdeltime}}<span><ion-icon name="chevron-forward-outline"></ion-icon></span>
+		</div>
+
+
+		<div class="appcoupncdtgl" *ngIf='mywaltbalance'>
+			<img src="assets/wallet_icon.png">
+			<ion-item *ngIf='!iscartlowforwalet'>
+				<ion-label>{{trnslt.use}} <code [innerHTML]='getappsetng?.currency_symbol'></code>{{walletminus}} {{trnslt.use_wallet}}</ion-label>
+				<ion-toggle [(ngModel)]="usewalletbtn" (ionChange)="usewallet()"></ion-toggle>
+		    </ion-item>
+		    <ion-item *ngIf='iscartlowforwalet'>
+				<ion-label style='font-size: 12px !important; color: #f00;'>{{trnslt.use_your_walt_blnc}} <code [innerHTML]='getappsetng?.currency_symbol'></code>{{adndothforwlt}}</ion-label>
+		    </ion-item>
+		</div>
+
+		
+		<div class="billdeatils">
+			<div class="head">{{trnslt.bill_details}}</div>
+			<ul>
+				<li>{{trnslt.item_total}} <span><code [innerHTML]='getappsetng?.currency_symbol'></code>{{carttotal}}</span></li>
+				<li *ngIf='apldofrs'>{{offer_text}} <span>- <code [innerHTML]='getappsetng?.currency_symbol'></code>{{off_amount}}</span></li>
+				<li *ngIf='getappsetng.additional_one_lebel'>{{getappsetng.additional_one_lebel}} <span>+ <code [innerHTML]='getappsetng?.currency_symbol'></code>{{getappsetng.additional_one_value}}</span></li>
+				<li *ngIf='getappsetng.additional_two_lebel'>{{getappsetng.additional_two_lebel}} <span>+ <code [innerHTML]='getappsetng?.currency_symbol'></code>{{getappsetng.additional_two_value}}</span></li>
+				<li *ngIf='getappsetng.additional_three_lebel'>{{getappsetng.additional_three_lebel}} <span>+ <code [innerHTML]='getappsetng?.currency_symbol'></code>{{getappsetng.additional_three_value}}</span></li>
+				<li *ngIf='getappsetng.tax_lebel'>{{getappsetng.tax_lebel}} ({{getappsetng.tax_value}}%) <span>+ <code [innerHTML]='getappsetng?.currency_symbol'></code>{{taxvalue}}</span></li>
+				<li *ngIf='isDeliveryOrd'>Delivery <span [innerHTML]='delvrxtx'></span></li>
+				<li *ngIf='prord_price && isDeliveryOrd'>{{trnslt.pre_ord_del}} <span>+ <code [innerHTML]='getappsetng?.currency_symbol'></code>{{prord_price}}</span></li>
+
+				<li class="topay" *ngIf='usewalletbtn'>{{trnslt.total}} <span><code [innerHTML]='getappsetng?.currency_symbol'></code>{{pay_amount}}</span></li>
+
+				<li *ngIf='usewalletbtn'>{{trnslt.use_wallet}} <span>- <code [innerHTML]='getappsetng?.currency_symbol'></code>{{walletminus}}</span></li>
+
+				<li class="topay" *ngIf='usewalletbtn'>{{trnslt.to_pay}} <span><code *ngIf="pay_amount_wallet_use > 0" [innerHTML]='getappsetng?.currency_symbol'></code>{{pay_amount_wallet_use}}</span></li>
+				<li class="topay" *ngIf='!usewalletbtn'>{{trnslt.to_pay}} <span><code [innerHTML]='getappsetng?.currency_symbol'></code>{{pay_amount}}</span></li>
+			</ul>
+		</div>
+
+		<div class="billdeatils" *ngIf='isDeliveryOrd'>
+			<div class="head">{{trnslt.del_adress}} <span (click)='continueShp()'><ion-icon name="create-outline"></ion-icon> {{trnslt.change}}</span></div>
+			<ul>
+				<li>{{shipping.address_type}}<br>{{shipping.address_line_one}} {{shipping.address_line_two}} {{shipping.postcode}}</li>
+			</ul>
+		</div>
+		<div class="onlytxt">
+			{{trnslt.by_cnf_yr_ord}} <span (click)="gotncpg('tnc')">{{trnslt.trms_condition}}</span> {{trnslt.and_our}} <span (click)="gotncpg('pvp')">{{trnslt.privacy_policy}}</span>. 
+		</div>
+	</div>
+	
+</ion-content>
+<ion-footer class="ion-no-border crtfooter" *ngIf='cartcount'>
+	<div class="makepaymentbtn" (click)='callconfirmord()'>
+		{{trnslt.cnf_ord}}
+	</div>
+	<!-- <div class="leftsidehalf" (click)='gohome()'>
+		Add More Items
+	</div>
+	<div class="rightsidehlf" (click)='viewpayoption()'>
+		Proceed to Pay
+	</div> -->
+	<div class="clear"></div>
+</ion-footer>

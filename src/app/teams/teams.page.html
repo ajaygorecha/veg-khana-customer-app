@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar class="header-background-color">
+  	 <ion-back-button slot="start"></ion-back-button>
+    <ion-title class="heaerfont">{{pgtype}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+	 <div *ngIf="pgtype == 'Our Team'">
+		<div class="padcontr">
+			<div class="offerbox" *ngFor="let item of allProducts">
+				<div class="offer_img">
+					<img src="{{imgpath}}team/{{item.image}}">
+				</div>
+				<div class="offercode">
+					
+				</div>
+				<div class="offerhead">
+					{{item.name}} <span> - {{item.role}}</span>
+				</div>
+				<div class="offerdescription" [innerHTML]='item.about_me'></div>
+
+				<div class="socialicon">
+					<span class="facebook" *ngIf='item.facebook'><ion-icon name="logo-facebook"></ion-icon></span>
+					<span class="twitter" *ngIf='item.twitter'><ion-icon name="logo-twitter"></ion-icon></span>
+					<span class="instagram" *ngIf='item.instagram'><ion-icon name="logo-instagram"></ion-icon></span>
+					<span class="youtube" *ngIf='item.youtube'><ion-icon name="logo-youtube"></ion-icon></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div *ngIf="pgtype == 'Photo Gallery'">
+		<div class="padcontr">
+			<div class="offerbox" *ngFor="let item of allProducts">
+				<div class="offer_img">
+					<img src="{{imgpath}}photo_gallery/{{item.image}}">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div *ngIf="pgtype == 'Video Gallery'">
+		<div class="padcontr">
+			<div class="offerbox" *ngFor="let item of allProducts">
+				<div class="offer_img" (click)='helovid(item.link)'>
+					<div class="laybtn">
+				     <img src="assets/ytbplay.png">
+				   </div>
+					<img src="https://img.youtube.com/vi/{{item.link}}/0.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="padcontr">
+		<div class="offerbox" *ngFor="let item of allProducts">
+			<div class="offer_img">
+				<img src="{{imgpath}}offers/{{item.image}}">
+			</div>
+			<div class="offercode">
+				<img src="assets/offeriCon.png"> {{item.offer_code}} <span *ngIf="pgtype == 'apply'" (click)='appltythis(item)'>Apply</span>
+			</div>
+			<div class="offerhead">
+				{{item.heading}}
+			</div>
+			<div class="offerdescription" [innerHTML]='item.description'></div>
+		</div>
+	</div> -->
+
+	<div *ngIf="pgtype == 'Social Media'" class="padcontr">
+
+		<div class="contactlist">
+		 	<ul>
+		 		<li class="facebook" *ngIf='allProducts?.facebook' (click)="viewonbrsr(allProducts?.facebook)"><img src="assets/icon/social/facebook.png">{{brndane}} on Facebook</li>
+			 	<li class="instagram" *ngIf='allProducts?.instagram' (click)="viewonbrsr(allProducts?.instagram)"><img src="assets/icon/social/instagram.png">{{brndane}} on Instagram</li>
+			 	<li class="pinterest" *ngIf='allProducts?.pinterest' (click)="viewonbrsr(allProducts?.pinterest)"><img src="assets/icon/social/pinterest.png">{{brndane}} on Pinterest</li>
+			 	<li class="linkedin" *ngIf='allProducts?.linkedln' (click)="viewonbrsr(allProducts?.linkedln)"><img src="assets/icon/social/linkedin.png">{{brndane}} on LinkedIn</li>
+			 	<li class="trustpilot" *ngIf='allProducts?.trustpilot' (click)="viewonbrsr(allProducts?.trustpilot)"><img src="assets/icon/social/trustpilot.png">{{brndane}} on TrustPilot</li>
+			 	<li class="tripadvisor" *ngIf='allProducts?.trip_advisor' (click)="viewonbrsr(allProducts?.trip_advisor)"><img src="assets/icon/social/tripadvisor.png"> {{brndane}} on Trip Advisor</li>
+			 	<li class="twitter" *ngIf='allProducts?.twitter' (click)="viewonbrsr(allProducts?.twitter)"><img src="assets/icon/social/twitter.png">{{brndane}} on Twitter</li>
+			 	<li class="tripadvisor" *ngIf='allProducts?.google_mybusiness' (click)="viewonbrsr(allProducts?.google_mybusiness)"><img src="assets/icon/social/googlemybusiness.png"> {{brndane}} on Google</li>
+		 	</ul>
+		 </div>
+
+	</div>
+</ion-content>
+

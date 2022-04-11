@@ -1,0 +1,298 @@
+<!-- <div class="chopclosenow" *ngIf='isShopclose'>
+	<span>
+		<h1>{{closetxt.openTimeTxt}}</h1>
+      	<p [innerHTML]='closetxt.openTimeToday'></p>
+      	<div class="okbtnforrevoew" (click)='noshopping()'><span>Ok</span></div>
+	</span>
+</div> -->
+
+<div class="chopclosenows" *ngIf='!islngset'>
+	<span>
+		<div class="langlist">
+			Select Language
+			<ul>
+				<li *ngFor="let stln of appstngs.lng_list" (click)='setmylng(stln)'>{{stln.native}}</li>
+			</ul>
+		</div>
+	</span>
+</div>
+
+<div class="chopclosenow" *ngIf='isRestricktn'>
+	<span>
+		<h1>{{restrictns_lbl}}</h1>
+      	<p>{{restrictns_txt}}</p>
+      	<div class="okbtnforrevoew" (click)='alrestclose()'><span>{{trnslt.ok}}</span></div>
+	</span>
+</div>
+
+<ion-header>
+  <ion-toolbar class="header-background-color">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="heaerfont"><img src="assets/icon/logo.png"></ion-title>
+    <ion-buttons slot="end" (click)='viewmycart()'>
+    	<div class="cartcount" *ngIf='cartcount'>
+    		{{cartcount}}
+    	</div>
+      <ion-icon name="cart-outline" clas='headerrighticon'></ion-icon>
+    </ion-buttons>
+
+    <ion-buttons slot="end" (click)='viewsearpg()'>
+      <ion-icon name="search-outline" class='searchicnhmheader'></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div *ngIf='sesinlefct'>
+		<div class="snowflx">
+			<div class="snowflakes" *ngIf="appstngs.festive_theme=='Christmas'">
+				<i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+			</div>
+
+			<div class="sprngleaf" *ngIf="appstngs.festive_theme=='Leaves'">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+				<img src="assets/86-866989_spring-leaf-png.png">
+			</div>
+
+			<div class="wntrflwer" *ngIf="appstngs.festive_theme=='Flowers'">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+				<img src="assets/winter_flower.png">
+			</div>
+
+		<!-- Valentine's Start -->
+			<div class="bubbling-heart" *ngIf="appstngs.festive_theme=='Valentine'">
+			  <div><ion-icon name="heart"></ion-icon></div>
+			  <div><ion-icon name="heart"></ion-icon></div>
+			  <div><ion-icon name="heart"></ion-icon></div>
+			  <div><ion-icon name="heart"></ion-icon></div>
+			  <div><ion-icon name="heart"></ion-icon></div>
+			  <div><ion-icon name="heart"></ion-icon></div>
+			</div>
+		<!-- Valentine's End -->
+
+		<!-- Diwali Start -->
+			<ul class="lightrope" *ngIf="appstngs.festive_theme=='Diwali'">
+			  <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+			</ul>
+			
+		<!-- Diwali End -->
+
+			<div class="pyro" *ngIf="appstngs.festive_theme=='New Year'">
+			  <div class="before"></div>
+			  <div class="after"></div>
+			</div>
+
+		<!-- Haloween Start -->
+			<div *ngIf="appstngs.festive_theme=='Haloween'">
+				<div class='spider_0'>
+				  <div class='eye left'></div>
+				  <div class='eye right'></div>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				</div>
+				<div class='spider_1'>
+				  <div class='eye left'></div>
+				  <div class='eye right'></div>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				</div>
+				<div class='spider_2'>
+				  <div class='eye left'></div>
+				  <div class='eye right'></div>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				</div>
+				<div class='spider_3'>
+				  <div class='eye left'></div>
+				  <div class='eye right'></div>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				</div>
+				<div class='spider_4'>
+				  <div class='eye left'></div>
+				  <div class='eye right'></div>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				</div>
+				<div class='spider_5'>
+				  <div class='eye left'></div>
+				  <div class='eye right'></div>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg left'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				  <span class='leg right'></span>
+				</div>
+				<img class='web-right' src='http://www.scandiafun.com/images/spiderweb-corner-right.png'>
+				<img class='web-left' src='http://www.scandiafun.com/images/spiderweb-corner-right.png'>
+			</div>
+			
+		<!-- Haloween End -->
+		</div>
+	</div>
+
+	
+
+
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+	<div class="homebanner">
+		<ion-slides pager="true" [options]="slideOpts">
+		   <ion-slide *ngFor="let bnr of banners" (click)='gocategory(bnr)'>
+		       <img src="{{imgpath}}banner/{{bnr.image}}">
+		    </ion-slide>
+		</ion-slides>
+	</div>
+	<div class="highdemandbanner blinking" *ngIf='appstngs?.pause_order_message'>
+		<ion-icon name="fast-food-outline"></ion-icon> {{appstngs?.pause_order_message}}
+	</div>
+<div class="padcontr">
+	<div *ngFor="let item of category">
+		<div class="mostpopular">
+			{{item.name}} <span (click)='seeall(item)'>{{trnslt.see_all}}</span>
+		</div>
+		<ion-slides pager="true" [options]="slideOptsmenu" class='slidediv' *ngIf='!item.isscg'>
+			<ion-slide *ngFor="let itm of item.prd" class='parentslid'>
+		   		<div class="outofstkstamp" *ngIf="itm.isAvailable=='Sold Out'"><img src="assets/outofstock.png"></div>
+			   <div class="thumbsec" [ngClass]="itm.isAvailable ? 'allgrasccl': ''">
+					<div class="thubimg" (click)="openDetailsItem(itm)">
+						<div class="cornertxt {{itm.corner_text_css}}" *ngIf='itm.corner_text'>
+							{{itm.corner_text}}
+						</div>
+						<img src="{{imgpath}}products/{{itm.imgs[0]}}">
+					</div>
+					<div class="conainfood" (click)="openAlergyInfo(itm)" *ngIf='itm.alrgy'>
+						<img *ngFor="let cnt of itm.contain" src="assets/foodcontain/{{cnt}}.png">
+					</div>
+					<div class="temname" (click)="openDetailsItem(itm)">
+						{{itm.name}} <img src="assets/foodcontain/chili.png" *ngFor="let cl of itm.chilli">
+					</div>
+					<div class="temdesc" (click)="openDetailsItem(itm)">
+						{{itm.description}}
+					</div>
+					<div class="priceandvegicn">
+						<span [innerHTML]='appstngs?.currency_symbol'></span>{{itm.itmprice}}
+						<!-- <img src="assets/icon/{{itm.food_type}}.jpg"> -->
+					</div>
+					<div *ngIf='itm.isAvailable' class="soldoutbtn">
+						{{itm.isAvailable}}
+					</div>
+					<div *ngIf='!itm.isAvailable'>
+						<div id="addcartbtn_{{item.id}}_{{itm.id}}" class="cardbtn" (click)="addtoCart(itm, item.id)" [style.display]="itm.qty?'none':'inherit'">
+							<ion-icon name="cart-outline"></ion-icon> {{itm.crtbtn}}
+						</div>
+						<div class="cartbtn" id="qtycartbtn_{{item.id}}_{{itm.id}}" [style.display]="!itm.qty?'none':'inherit'">
+							<span class="minusbtn" (click)="minusqty(itm, item.id)"><ion-icon name="remove-outline"></ion-icon></span>
+							<span class="qtyvalue" id="itmqty_{{item.id}}_{{itm.id}}">{{itm.qty}}</span>
+							<span class="plusbtn" (click)="addqty(itm, item.id)"><ion-icon name="add-outline"></ion-icon></span>
+						</div>
+					</div>
+				</div>
+			</ion-slide>
+		</ion-slides>
+
+		<ion-slides pager="true" [options]="slideOptsmenu" class='slidediv' *ngIf='item.isscg'>
+			<ion-slide *ngFor="let sbct of item.scg" class='parentslid'>
+			   <div class="thumbsec">
+					<div class="thubimg" (click)="gonextsbg(sbct, item)">
+						<img src="{{imgpath}}subcategory/{{sbct.icon}}">
+					</div>
+					<div class="temname" (click)="gonextsbg(sbct, item)">
+						{{sbct.name}}
+					</div>
+					<div class="cardbtn" style="background-color: #5a5959; text-align: center;" (click)="gonextsbg(sbct, item)">
+							 {{trnslt.view_item}}
+					</div>
+				</div>
+			</ion-slide>
+		</ion-slides>
+	</div>
+</div>
+</ion-content>
+<ion-footer class="ion-no-border myfootercart" *ngIf='cartcount'>
+	<div class="leftprice">
+		{{cartcount}} {{trnslt.itms}} | <code [innerHTML]='appstngs?.currency_symbol'></code>{{carttotal}}<br>
+		<span>{{trnslt.extra_charge_mayh_aply}}</span>
+	</div>
+	<div class="viewcardbtn" (click)='viewmycart()'>
+		{{trnslt.view_cart}} <ion-icon name="cart-outline"></ion-icon>
+	</div>
+	<div class="clear"></div>
+</ion-footer>

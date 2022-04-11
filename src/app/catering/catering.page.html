@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar class="header-background-color">
+  	 <ion-back-button slot="start"></ion-back-button>
+    <ion-title class="heaerfont">{{trnslt.catering_service}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+
+	 <div class="cateringlogo">
+	 	<img src="assets/icon/logo.png">
+	 </div>
+	 <div class="cmshead">
+	 	{{allProducts?.heading}}
+	 </div>
+	 <div class="cmsdesc" [innerHTML]='allProducts?.descriptions'></div>
+
+	 <div class="formforcatering">
+	 	<label>{{trnslt.your_full_name}}</label>
+	 	<input type="text" [(ngModel)]="data.fullname">
+	 </div>
+	 <div class="formforcatering">
+	 	<label>{{trnslt.conact_number}}</label>
+	 	<input type="tel" [(ngModel)]="data.mobile" maxlength="11"  onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+	 </div>
+	 <div class="formforcatering">
+	 	<label>{{trnslt.event_date}}</label>
+	 	<input type="text" [(ngModel)]="data.date" placeholder="25th December {{allProducts?.nowysr}}">
+	 </div>
+	 <div class="formforcatering">
+	 	<label>{{trnslt.event_time}}</label>
+	 	<input type="text" [(ngModel)]="data.time">
+	 </div>
+	 <div class="formforcatering">
+	 	<label>{{trnslt.event_desc}}</label>
+	 	<input type="text" [(ngModel)]="data.descriptions">
+	 </div>
+	 <div class="formforcatering">
+	 	<label>{{trnslt.nu_of_guest}}</label>
+	 	<input type="text" [(ngModel)]="data.budget">
+	 </div>
+	 <div class="submitbtn" (click)='submitevnt()'>
+	 	{{trnslt.submit}}
+	 </div>
+
+</ion-content>

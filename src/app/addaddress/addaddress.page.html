@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{trnslt.add_a_del_adress}}:</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="loginmobilefieldreg">
+		<label>{{trnslt.address_type}}</label>
+		<input type="text" [(ngModel)]="data.address_type">
+	</div>
+	<div class="loginmobilefieldreg">
+		<label>{{trnslt.address_line_one}}</label>
+		<input type="text" [(ngModel)]="data.address_line_one">
+	</div>
+	<div class="loginmobilefieldreg">
+		<label>{{trnslt.address_line_two}}</label>
+		<input type="text" [(ngModel)]="data.address_line_two">
+	</div>
+	<div class="loginmobilefieldreg">
+		<label>{{trnslt.postcode}}</label>
+		<input type="text" [(ngModel)]="data.postcode">
+	</div>
+	
+	<div class="continuebtn" (click)='addnewaddress()'>
+		{{trnslt.add}}
+	</div>
+	
+</ion-content>
+

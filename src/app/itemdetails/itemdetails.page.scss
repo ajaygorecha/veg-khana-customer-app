@@ -1,0 +1,55 @@
+.imageitm{
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    max-height: 250px;
+    overflow: hidden;
+    margin-bottom: 10px
+    img{
+        width: 100%;
+        object-fit: cover;
+    }
+}
+.conainfood{
+    width: 100%;
+    height: auto;
+    padding: 10px 15px;
+    img{
+        height: 30px;
+        margin-right: 10px;
+    }
+}
+.temname{
+    width: 100%;
+    height: auto;
+    padding: 2px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    img{
+        height: 10px;
+    }
+}
+.temdesc{
+    width: 100%;
+    height: auto;
+    padding: 2px 15px;
+    font-size: 13px;
+}
+.temdescinfo{
+    width: 100%;
+    height: auto;
+    padding: 9px 15px;
+    font-size: 11px;
+}
+.priceandvegicn{
+    width: 100%;
+    height: auto;
+    padding: 2px 15px;
+    font-size: 20px;
+    font-weight: bold;
+    span{
+        font-size: 14px;
+        font-weight: normal;
+    }
+}
+

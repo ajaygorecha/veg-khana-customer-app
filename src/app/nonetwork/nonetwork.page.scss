@@ -1,0 +1,22 @@
+.nonetword{
+	background-color: #f6f6f6;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	img{
+		width: 100%;
+		margin-top: 40%;
+	}
+	.backonline{
+		position: absolute;
+	    width: 100%;
+	    height: auto;
+	    font-size: 12px;
+	    background-color: rgb(17 82 16 / 83%);
+	    color: #fff;
+	    text-align: center;
+	    bottom: 0;
+	    left: 0;
+	    padding: 3px 0;
+	}
+}

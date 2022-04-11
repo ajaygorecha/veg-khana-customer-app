@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar class="header-background-color">
+  	 <ion-back-button slot="start"></ion-back-button>
+    <ion-title class="heaerfont">{{trnslt.my_wallet}}</ion-title>
+    <!-- <ion-buttons slot="end" (click)='openmyrefcode()' class='myreftop'>
+      My Referral Code
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+	 <div class="padcontr">
+	 	<div class="my_curent_balace">
+	 		 <span [innerHTML]='getappsetng?.currency_symbol'></span>{{wallets?.curent_balance}}<br>
+	 		 <div class="avlbleblnc">{{trnslt.avl_blnce}}</div>
+	 		 <!-- <div class="myreftop">My Referral Code<br><span><ion-icon name="copy-outline"></ion-icon> {{logeduser?.my_referral_code}}</span></div> -->
+	 	</div>
+	 	<div class="trnlist" *ngIf='istranstn'>
+	 		<ul>
+	 			<li class="headnglist">
+	 				<div class="desc">{{trnslt.item}}</div>
+	 				<div class="lastaduct">{{trnslt.amount}}</div>
+	 				<div class="balance">{{trnslt.balance}}</div>
+	 				<div class="clear"></div>
+	 			</li>
+	 			<li class="{{trn.diductclass}}" *ngFor="let trn of wallets?.trn_list">
+	 				<div class="desc">{{trn.description}}<br><span>{{trn.trndate}} {{trn.trntime}}</span></div>
+	 				<div class="lastaduct"><span [innerHTML]='getappsetng?.currency_symbol'></span>{{trn.amount}} <b>{{trn.trtype}}</b></div>
+	 				<div class="balance"><span [innerHTML]='getappsetng?.currency_symbol'></span>{{trn.balance}}</div>
+	 				<div class="clear"></div>
+	 			</li>
+	 		</ul>
+	 	</div>
+	 </div>
+	
+</ion-content>
+
+<ion-footer class="ion-no-border crtfooter" (click)='shareref();'>
+	<div class="walletfooter">
+		{{trnslt.ref_a_frnd_get}} <span [innerHTML]='getappsetng?.currency_symbol'></span>{{getappsetng.wallet_set.new_ref_bonus}}<br>
+		{{trnslt.ref_code}}: {{logeduser?.my_referral_code}}
+		<ion-icon name="share-outline"></ion-icon>
+	</div>
+</ion-footer>

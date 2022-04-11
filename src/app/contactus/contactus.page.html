@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar class="header-background-color">
+  	 <ion-back-button slot="start"></ion-back-button>
+    <ion-title class="heaerfont">{{trnslt.conact_us}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+	 <div class="padcontr">
+	 	<div class="cateringlogo">
+		 	<img src="assets/icon/logo.png">
+		 </div>
+
+		 <div class="contactlist">
+		 	<ul>
+		 		<li *ngIf='cnt?.address' (click)="acnfr('address', cnt?.address)"><img src="assets/icon/social/address.png"> {{cnt?.address}}</li>
+			 	<li *ngIf='cnt?.email' (click)="acnfr('email', cnt?.email)"><img src="assets/icon/social/email.png"> {{cnt?.email}}</li>
+			 	<li *ngIf='cnt?.mobile' (click)="acnfr('call', cnt?.mobile)"><img src="assets/icon/social/phone.png"> {{cnt?.mobile}}</li>
+			 	<li *ngIf='cnt?.phone' (click)="acnfr('call', cnt?.phone)"><img src="assets/icon/social/phone.png"> {{cnt?.phone}}</li>
+			 	<li *ngIf='cnt?.whatsapp' (click)="acnfr('whatsapp', cnt?.whatsapp)"><img src="assets/icon/social/whatsapp.png"> {{trnslt.snd_us_a_whstap_msg}}</li>
+			 	<li *ngIf='cnt?.website' (click)="acnfr('website', cnt?.website)"><img src="assets/icon/social/website.png"> {{trnslt.website}}</li>
+			 	<li *ngIf='cnt?.facebook' (click)="acnfr('website', cnt?.facebook)"><img src="assets/icon/social/facebook.png"> {{apnme}}/{{trnslt.facebook}}</li>
+			 	<li *ngIf='cnt?.twitter' (click)="acnfr('website', cnt?.twitter)"><img src="assets/icon/social/twitter.png"> {{apnme}}/{{trnslt.twitter}}</li>
+			 	<li *ngIf='cnt?.instagram' (click)="acnfr('website', cnt?.instagram)"><img src="assets/icon/social/instagram.png"> {{apnme}}/{{trnslt.isntagram}}</li>
+			 	<li *ngIf='cnt?.linkedln' (click)="acnfr('website', cnt?.linkedln)"><img src="assets/icon/social/linkedin.png"> {{apnme}}/{{trnslt.linkdin}}</li>
+			 	<li *ngIf='cnt?.pinterest' (click)="acnfr('website', cnt?.linkedln)"><img src="assets/icon/social/pinterest.png"> {{apnme}}/{{trnslt.pinterest}}</li>
+			 	<li *ngIf='cnt?.trustpilot' (click)="acnfr('website', cnt?.trustpilot)"><img src="assets/icon/social/trustpilot.png"> {{apnme}}/{{trnslt.trustpilot}}</li>
+			 	<li *ngIf='cnt?.trip_advisor' (click)="acnfr('website', cnt?.trip_advisor)"><img src="assets/icon/social/tripadvisor.png"> {{apnme}}/{{trnslt.tripadvisor}}</li>
+			 	<li *ngIf='cnt?.google_mybusiness' (click)="acnfr('website', cnt?.google_mybusiness)"><img src="assets/icon/social/googlemybusiness.png"> {{apnme}}/{{trnslt.googlemybusiness}}</li>
+		 	</ul>
+		 </div>
+	 </div>
+	 
+	 
+
+</ion-content>

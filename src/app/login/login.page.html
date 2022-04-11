@@ -1,0 +1,68 @@
+<ion-content no-bounce has-bouncing="false" forceOverscroll="false">
+	<div class="almosttherehead" *ngIf='!isTncdesc'>
+		{{trnslt.almost_there}}<br><span>{{trnslt.logi_or_signup}}</span>
+	</div>
+	<div *ngIf='!isnewUser'>
+		<div class="loginmobilefield">
+			<span><img src="assets/icon/phone-icon.png"></span>
+			<label>{{trnslt.mobile}}</label>
+			<input type="tel" [(ngModel)]="logmobile" maxlength="11" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+		</div>
+		<div *ngIf='!isPassrd'>
+			<div class="continuebtn" (click)='checkMobile()'>
+				{{trnslt.continue}}
+			</div>
+		</div>
+		<div *ngIf='isPassrd'>
+			<div class="loginmobilefieldreg">
+				<label>{{trnslt.password}}</label>
+				<input type="password" [(ngModel)]="logedpass">
+			</div>
+			<div class="forgotpass" (click)='forgotpassword()'>
+				{{trnslt.forgot_passwrd}}
+			</div>
+			<div class="continuebtn" (click)='loginnow()'>
+				{{trnslt.login}}
+			</div>
+		</div>
+
+		
+	</div>
+
+	<div *ngIf='isnewUser'>
+
+		<div *ngIf='isshowfldsnup'>
+			<div class="loginmobilefieldreg">
+				<label>{{trnslt.your_full_name}}</label>
+				<input type="text" [(ngModel)]="regt.fullname">
+			</div>
+			<div class="loginmobilefieldreg">
+				<label>{{trnslt.recovery_mail}}</label>
+				<input type="email" [(ngModel)]="regt.email">
+			</div>
+			<div class="loginmobilefieldreg">
+				<label>{{trnslt.password}}</label>
+				<input type="password" [(ngModel)]="regt.password">
+			</div>
+			<div class="loginmobilefieldreg" *ngIf="isWallert">
+				<label>{{trnslt.reff_code}}</label>
+				<input type="text" [(ngModel)]="regt.referral">
+			</div>
+			<div class="onlytxt">
+				<input type="checkbox" checked="true" disabled="true"> {{trnslt.by_click_sgnup}} <span (click)="gotncpg('Terms and Conditions')">{{trnslt.trms_condition}}</span> {{trnslt.and_our}} <span (click)="gotncpg('Privacy Policy')">{{trnslt.privacy_policy}}</span>. {{trnslt.you_alsoakcnofe}}
+			</div>
+			<div class="continuebtn" (click)='signupnow()'>
+				{{trnslt.signup}}
+			</div>
+		</div>
+		<div *ngIf='isTncdesc' style="position: relative;">
+			<div style="position: absolute; right: 10px; top: -19px;font-size: 25px;font-weight: bold;" (click)='closetncpvc()'>x</div>
+			<div class="cmsdesc" [innerHTML]='allProducts?.description'></div>
+			<div class="continuebtn" (click)='closetncpvc()'>
+				{{trnslt.close}}
+			</div>
+		</div>
+		
+	</div>
+	
+</ion-content>

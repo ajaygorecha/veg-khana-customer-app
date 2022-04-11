@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{item.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="itemvariation">
+		<ul>
+			<li *ngFor="let item of dyndata"><input type="checkbox" id="chkbx_{{item.id}}" (click)='checkif(item)'> {{item.name}} <span><code [innerHTML]='getappsetng?.currency_symbol'></code>{{item.price}}</span></li>
+		</ul>
+	</div>
+</ion-content>
+<ion-footer class="ion-no-border adcrtftr" (click)='choosethis()'>
+	{{trnslt.add_to_cart}}
+</ion-footer>

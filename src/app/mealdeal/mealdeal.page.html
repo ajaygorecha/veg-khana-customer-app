@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{item.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="itemvariation" *ngFor="let cat of item.mealdeal" id="mealdealcat_{{cat.id}}">
+		<div class="catnamehead">
+			{{cat.cat_name}}
+		</div>
+		<input type="hidden" id="no_of_checked_{{cat.deal_id}}" value="0">
+		<ul>
+			<li *ngFor="let mdl of cat.choices"><input type="checkbox" id="chkbx_{{mdl.id}}" (click)='checkif(mdl)'> {{mdl.name}} <span><code [innerHTML]='getappsetng?.currency_symbol'></code>{{mdl.price}}</span></li>
+		</ul>
+	</div>
+
+	
+</ion-content>
+<ion-footer class="ion-no-border adcrtftr" (click)='choosethis()'>
+	{{trnslt.add_to_cart}}
+</ion-footer>

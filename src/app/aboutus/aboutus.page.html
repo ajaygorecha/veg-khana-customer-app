@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar class="header-background-color">
+  	 <ion-back-button slot="start"></ion-back-button>
+    <ion-title class="heaerfont" *ngIf='!isOpeningtime'>{{allProducts?.heading}}</ion-title>
+    <ion-title class="heaerfont" *ngIf='isOpeningtime'>{{pgtype}}</ion-title>
+
+    <ion-buttons slot="end" (click)='viewalergy()' *ngIf="pgtype=='Allergy'">
+      <ion-icon name="information-circle-outline" clas='headerrighticon'></ion-icon>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+
+	 <div class="cmsdesc" *ngIf='!isOpeningtime' [innerHTML]='allProducts?.description'></div>
+
+	 <div class="cmsdesc" *ngIf='isOpeningtime'>
+
+	 	<div class="blackboardbg">
+	 		<div class="daysnamelp" *ngFor="let item of opntimem">
+	 			{{item.day}}
+	 			<div class="timesopncls">
+	 				<ul>
+	 					<div *ngIf='!item.shopclose'>
+	 						<li *ngIf='item.bdast_open'>Breakfast:  {{item.bdast_open}} - {{item.bdast_close}}</li>
+			 				<li *ngIf='item.lunch_open'>Lunch:  {{item.lunch_open}} - {{item.lunch_close}}</li>
+			 				<li *ngIf='item.dinner_open'>Dinner:  {{item.dinner_open}} - {{item.dinner_close}}</li>
+	 					</div>
+	 					
+		 				<li *ngIf='item.shopclose'>{{item.shopclose}}</li>
+	 				</ul>
+	 			</div>
+	 		</div>
+	 	</div>
+	 </div>
+	 
+
+</ion-content>
+
+<ion-footer class="ion-no-border crtfooter" *ngIf="pgtype=='Allergy'">
+	<div (click)='viewalergy()' class="viewalergy">
+		{{trnslt.view_full_allergen_tbl}}
+	</div>
+</ion-footer>

@@ -1,0 +1,51 @@
+<div class="chopclosenows" *ngIf='islngset'>
+	<span>
+		<div class="langlist">
+			Select Language
+			<ul>
+				<li *ngFor="let stln of appstngs.lng_list" (click)='setmylng(stln)'>{{stln.native}}</li>
+			</ul>
+		</div>
+	</span>
+</div>
+
+<ion-header>
+  <ion-toolbar class="header-background-color">
+  	 <ion-back-button slot="start"></ion-back-button>
+    <ion-title class="heaerfont">{{pgtype}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+
+	 <div class="padcontr">
+	 	<div *ngIf="pgtype == 'Settings'">
+	 		<div class="categoryliststngs">
+		 		{{trnslt.push_notifsctn}} <span><ion-toggle [(ngModel)]="seting.push" (ionChange)="seingcnge('')"></ion-toggle></span>
+		 		<div class="clear"></div>
+		 	</div>
+		 	<div class="categoryliststngs" *ngIf='isTouchidDevice'>
+		 		{{trnslt.face_id}} <span><ion-toggle [(ngModel)]="seting.face" (ionChange)="seingcnge('touchface')"></ion-toggle></span>
+		 		<div class="clear"></div>
+		 	</div>
+		 	<div class="categorylists" (click)=openlngchose()>
+		 		{{trnsltapp.native}} <span><ion-icon name="language-outline"></ion-icon></span>
+		 	</div>
+		 	<div class="categorylists" *ngFor="let item of allProducts" (click)='gonext(item)'>
+		 		{{item.name}} <span><ion-icon name="chevron-forward-outline"></ion-icon></span>
+		 	</div>
+	 	</div>
+	 	
+	 	<div *ngIf="pgtype != 'Settings'">
+	 		<div class="categorylists" *ngFor="let item of allProducts" (click)='gonext(item)'>
+		 		{{item.name}} <span><ion-icon name="chevron-forward-outline"></ion-icon></span>
+		 	</div>
+	 	</div>
+	 	
+
+	 </div>
+
+</ion-content>

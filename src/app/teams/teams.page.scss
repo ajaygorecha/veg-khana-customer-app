@@ -1,0 +1,198 @@
+.offerbox{
+	width: 100%;
+	height: auto;
+	background-color: #fff;
+	border-radius: 3px;
+	box-shadow: 0 1px 2px #CCC;
+	margin-bottom: 10px;
+	.offer_img{
+		width: 100%;
+		height: auto;
+		position: relative;
+		img{
+			width: 100%;
+			border-radius: 3px 3px 0 0;
+		}
+		.laybtn{
+			width: 100%;
+			height: auto;
+			position: absolute;
+			top: 40%;
+			text-align: center;
+			img{
+				width: 66px;
+				box-shadow: none;
+			    border-radius: 0;
+			    overflow: hidden;
+			}
+		}
+	}
+	.offercode{
+		width: 100%;
+	    height: auto;
+	    position: relative;
+	    font-size: 14px;
+	    font-weight: bold;
+	    padding: 0 15px;
+	    margin-top: 10px;
+		img{
+			height: 13px;
+    		margin-right: 5px;
+		}
+		span{
+			float: right;
+		    font-size: 14px;
+		    color: #ecba26;
+		    font-weight: normal;
+		    text-transform: uppercase;
+		}
+
+	}
+	.offerhead{
+		font-size: 13px;
+		line-height: 22px;
+		border-bottom: solid 1px #f1f1f1;
+	    margin: 7px 0;
+	    padding: 0 15px;
+	    padding-bottom: 3px;
+	    font-weight: bold;
+	    span{
+	    	font-weight: normal;
+	    }
+	}
+	.offerdescription{
+		width: 100%;
+		height: auto;
+		font-size: 12px;
+		padding: 0 15px 10px 15px;
+	}
+
+	.socialicon{
+		width: 100%;
+		height: auto;
+		font-size: 20px;
+		padding: 0 15px 10px 15px;
+		ion-icon{
+			margin-right: 7px;
+		}
+		.facebook{
+			color: #4267B2;
+		}
+		.twitter{
+			color: #00acee;
+		}
+		.instagram{
+			color: #9f338c;
+		}
+		.youtube{
+			color: #FF0000;
+		}
+	}
+}
+
+.clear{
+	clear: both;
+}
+.socialleft{
+	width: 48%;
+	height: auto;
+	background-color: #fff;
+	text-align: center;
+	float: left;
+	margin: 7px 4% 7px 0;
+	border-radius: 3px;
+	font-size: 12px;
+	font-weight: bold;
+	box-shadow: 0 1px 4px #ccc;
+	img{
+		height: 100px;
+	}
+	.facebook{
+		color: #3b5998;
+	}
+	.pinterest{
+		color: #cb2026;
+	}
+	.trustpilot{
+		color: #01b67b;
+	}
+	.twitter{
+		color: #56acee;
+	}
+}
+.socialright{
+	width: 48%;
+	height: auto;
+	background-color: #fff;
+	text-align: center;
+	float: left;
+	margin: 7px auto 7px auto;
+	border-radius: 3px;
+	font-size: 12px;
+	font-weight: bold;
+	box-shadow: 0 1px 4px #ccc;
+	img{
+		height: 100px;
+	}
+	.instagram{
+		color: #ee539e;
+	}
+	.linkedin{
+		color: #017ab9;
+	}
+	.tripadvisor{
+		color: #258602;
+	}
+}
+
+.contactlist{
+	width: 100%;
+	height: auto;
+	ul{
+		margin: 0;
+		padding: 0;
+		li{
+			list-style: none;
+		    padding: 15px 10px;
+		    background-color: #fff;
+		    margin-bottom: 10px;
+		    position: relative;
+		    padding-left: 45px;
+		    font-size: 15px;
+			ion-icon{
+				position: absolute;
+			    left: 12px;
+			    top: 14px;
+			    font-size: 18px;
+			}
+			img{
+				position: absolute;
+			    left: 7px;
+			    top: 10px;
+			    font-size: 18px;
+			    height: 30px;
+			}
+		}
+		.facebook{
+			color: #3b5998;
+		}
+		.pinterest{
+			color: #cb2026;
+		}
+		.trustpilot{
+			color: #01b67b;
+		}
+		.twitter{
+			color: #56acee;
+		}
+		.instagram{
+			color: #ee539e;
+		}
+		.linkedin{
+			color: #017ab9;
+		}
+		.tripadvisor{
+			color: #258602;
+		}
+	}
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Rapchick",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

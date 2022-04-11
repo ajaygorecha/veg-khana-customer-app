@@ -1,0 +1,244 @@
+.itemlists{
+	padding: 10px;
+	background-color: #fff;
+	border-bottom: solid 1px #efebeb;
+}
+
+.nameanddesc{
+	width: 60%;
+    height: auto;
+    float: left;
+    font-size: 13px;
+    line-height: 14px;
+	span{
+		font-size: 11px;
+		color: #717171;
+	}
+}
+
+.qtybox{
+	width: 25%;
+    height: auto;
+    float: left;
+    text-align: center;
+    border: solid 1px #dcdcdc;
+    line-height: 29px;
+    position: relative;
+    font-size: 14px;
+	.minusbtn{
+		color: #2f8632;
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    font-size: 19px;
+	    padding: 0 4px;
+	    padding-top: 5px;
+	    line-height: 19px;
+	}
+	.qtyvalue{
+		color: #2f8632;
+	}
+	.plsvalue{
+		color: #2f8632;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	    font-size: 19px;
+	    padding: 0 4px;
+	    padding-top: 5px;
+	    line-height: 19px;
+	}
+}
+.totalitm{
+	width: 15%;
+	height: auto;
+	float: left;
+	text-align: right;
+	line-height: 30px;
+	font-size: 14px;
+}
+.ifanythonote{
+	width: 100%;
+	height: auto;
+	padding: 10px 10px 10px 50px;
+	background-color: #fff;
+	position: relative;
+	font-size: 12px;
+    padding-top: 18px;
+	input{
+		width: 100%;
+	    font-size: 12px;
+	    height: 30px;
+	    border: none;
+	    background-color: transparent;
+	    outline: none;
+	}
+	ion-icon{
+	    position: absolute;
+	    left: 15px;
+	    top: 13px;
+	    font-size: 22px;
+	    color: #8a8989;
+	}
+}
+.appcoupncd{
+	width: 100%;
+    height: auto;
+    padding: 15px 10px 15px 49px;
+    background-color: #fff;
+    position: relative;
+    margin: 10px auto;
+    font-size: 13px;
+    font-weight: bold;
+	img{
+		position: absolute;
+	    height: 26px;
+	    left: 12px;
+	    top: 10px;
+	}
+	span{
+		float: right;
+	}
+	ion-item{
+		--padding-start: 0;
+		label{
+			font-size: 10px;
+			letter-spacing: 1px;
+		}
+	}
+}
+
+.appcoupncdtgl{
+	width: 100%;
+    height: auto;
+    padding: 0 0px 0 49px;
+    background-color: #fff;
+    position: relative;
+    margin: 10px auto;
+    font-size: 13px;
+    font-weight: bold;
+	img{
+		position: absolute;
+	    height: 26px;
+	    left: 12px;
+	    top: 10px;
+	}
+	span{
+		float: right;
+	}
+	ion-item{
+		--padding-start: 0;
+		label{
+			--font-size: 14px !important;
+			letter-spacing: 1px;
+		}
+	}
+	.item-inner{
+		border-bottom: 0 !important;
+	}
+}
+.billdeatils{
+	width: 100%;
+    height: auto;
+    padding: 15px 10px;
+    background-color: #fff;
+    position: relative;
+    margin: 5px auto;
+    font-size: 13px;
+    .head{
+    	font-size: 13px;
+    	margin-bottom: 10px;
+    	font-weight: bold;
+    	span{
+    		float: right;
+    	}
+    }
+    ul{
+    	margin: 0;
+    	padding: 0;
+    	li{
+    		list-style: none;
+    		font-size: 12px;
+    		padding: 7px 0;
+    		border-bottom: solid 1px #ececec;
+    		span{
+    			float: right;
+    		}
+    	}
+    	.topay{
+    		font-weight: bold;
+    	}
+    }
+}
+
+.crtfooter{
+	width: 100%;
+	height: auto;
+	background-color: transparent;
+	font-size: 12px;
+	.leftsidehalf{
+		width: 50%;
+		height: auto;
+		float: left;
+		background-color: #F00;
+		text-align: center;
+		line-height: 50px;
+		text-transform: uppercase;
+		color: #fff;
+	}
+	.rightsidehlf{
+		width: 50%;
+		height: auto;
+		float: left;
+		background-color: #000;
+		text-align: center;
+		line-height: 50px;
+		text-transform: uppercase;
+		color: #fff;
+	}
+	.makepaymentbtn{
+		width: 100%;
+		height: auto;
+		background-color: #318630;
+		text-align: center;
+		line-height: 50px;
+		text-transform: uppercase;
+		color: #fff;
+		font-size: 15px;
+    	font-weight: bold;
+	}
+}
+.onlytxt{
+	font-size: 13px;
+    background: #fff;
+    padding: 15px;
+    line-height: 21px;
+	span{
+		color: #4263de;
+    	font-weight: bold;
+	}
+}
+
+.notcartitm{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	margin: 20% auto;
+	img{
+		width: 100%;
+	}
+}
+.preorder{
+	float: none;
+    font-size: 8px !important;
+    font-weight: bold;
+    color: #f00 !important;
+}
+.xtrascss{
+	width: 85%;
+	color: #188626;
+	span{
+		color: #188626;
+	}
+}
+

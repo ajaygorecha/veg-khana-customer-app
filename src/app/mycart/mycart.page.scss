@@ -1,0 +1,260 @@
+.itemlists{
+	padding: 10px;
+	background-color: #fff;
+	border-bottom: solid 1px #efebeb;
+	position: relative;
+}
+.nameanddesc{
+	width: 60%;
+    height: auto;
+    float: left;
+    font-size: 13px;
+    line-height: 14px;
+	span{
+		font-size: 11px;
+		color: #717171;
+	}
+}
+.chopclosenow{
+	width: 100%;
+	height: 100%;
+	padding: 0 20px;
+	position: fixed;
+	z-index: 999;
+	background-color: rgba(0,0,0,0.5);
+	display: table;
+	text-align: center;
+	color: #fff;
+	span{
+		display: table-cell;
+		vertical-align: middle;
+	}
+	.okbtnforrevoew{
+		width: 100%;
+		height: auto;
+		text-align: center;
+		span{
+			background-color: #6780c5;
+		    display: inline-block;
+		    padding: 6px 40px;
+		    text-transform: uppercase;
+		    border-radius: 3px;
+		}
+	}
+}
+.qtybox{
+	width: 25%;
+    height: auto;
+    float: left;
+    text-align: center;
+    border: solid 1px #dcdcdc;
+    line-height: 29px;
+    position: relative;
+    font-size: 14px;
+	.minusbtn{
+		color: #2f8632;
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    font-size: 19px;
+	    padding: 0 4px;
+	    padding-top: 5px;
+	    line-height: 19px;
+	}
+	.qtyvalue{
+		color: #2f8632;
+	}
+	.plsvalue{
+		color: #2f8632;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	    font-size: 19px;
+	    padding: 0 4px;
+	    padding-top: 5px;
+	    line-height: 19px;
+	}
+}
+.totalitm{
+	width: 15%;
+	height: auto;
+	float: left;
+	text-align: right;
+	line-height: 30px;
+	font-size: 14px;
+}
+.ifanythonote{
+	width: 100%;
+	height: auto;
+	position: relative;
+	padding: 10px 10px 10px 50px;
+	background-color: #fff;
+	position: relative;
+	input{
+		width: 100%;
+	    font-size: 12px;
+	    height: 30px;
+	    border: none;
+	    background-color: transparent;
+	    outline: none;
+	}
+	ion-icon{
+	    position: absolute;
+	    left: 15px;
+	    top: 13px;
+	    font-size: 22px;
+	    color: #8a8989;
+	}
+}
+.appcoupncd{
+	width: 100%;
+    height: auto;
+    padding: 15px 10px 15px 49px;
+    background-color: #fff;
+    position: relative;
+    margin: 10px auto;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 12px;
+	img{
+		position: absolute;
+	    height: 26px;
+	    left: 12px;
+	    top: 10px;
+	}
+	span{
+		float: right;
+	}
+	b{
+		color: #267d45;
+	    font-size: 10px;
+	    font-weight: normal;
+	}
+}
+.billdeatils{
+	width: 100%;
+    height: auto;
+    padding: 15px 10px;
+    background-color: #fff;
+    position: relative;
+    margin: 5px auto;
+    font-size: 13px;
+    .head{
+    	font-size: 13px;
+    	margin-bottom: 10px;
+    	font-weight: bold;
+    }
+    ul{
+    	margin: 0;
+    	padding: 0;
+    	li{
+    		list-style: none;
+    		font-size: 12px;
+    		padding: 7px 0;
+    		border-bottom: solid 1px #ececec;
+    		span{
+    			float: right;
+    		}
+    	}
+    	.topay{
+    		font-weight: bold;
+    	}
+    }
+}
+
+.crtfooter{
+	width: 100%;
+	height: auto;
+	background-color: transparent;
+	font-size: 12px;
+	.leftsidehalf{
+		width: 50%;
+		height: auto;
+		float: left;
+		background-color: #F00;
+		text-align: center;
+		line-height: 50px;
+		text-transform: uppercase;
+		color: #fff;
+	}
+	.rightsidehlf{
+		width: 50%;
+		height: auto;
+		float: left;
+		background-color: #000;
+		text-align: center;
+		line-height: 50px;
+		text-transform: uppercase;
+		color: #fff;
+	}
+}
+.preorder{
+	float: none;
+    font-size: 8px !important;
+    font-weight: bold;
+    color: #f00 !important;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #d47906;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #d47906;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #d47906;
+}
+.xtrascss{
+	width: 85%;
+	color: #188626;
+	span{
+		color: #188626;
+	}
+}
+
+.xtrasremove{
+	position: absolute;
+    right: 0;
+    top: 0;
+    color: #f00;
+    width: 38px;
+    text-align: right;
+    height: 33px;
+}
+
+.highdemandbanner{
+  width: 100%;
+  height: auto;
+  padding: 10px 10px;
+  background: #da2a2c;
+  font-size: 11px;
+  font-weight: bold;
+  color: #fff;
+  position: relative;
+  padding-left: 50px;
+  margin-top: 8px;
+  ion-icon{
+    position: absolute;
+    left: 12px;
+    color: #fff;
+    font-size: 24px;
+  }
+}
+.blinking{
+  animation:blinkingText 1s infinite;
+}
+@keyframes blinkingText{
+  0%{   color: #dace2a;  }
+  /*49%{  color: #2d3dff; }*/
+  50%{  color: #fff; }
+  /*99%{  color:#fb01ff;  }*/
+  100%{ color: #dace2a;  }
+}
+
+
+
+
+
+

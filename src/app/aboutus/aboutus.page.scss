@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap');
+.cmsdesc{
+	width: 100%;
+	height: auto;
+	padding: 10px 15px;
+	font-size: 13px;
+	
+}
+h2{
+	font-size: 15px !important;
+}
+.viewalergy{
+	width: 100%;
+    height: auto;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #568694;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+.bfasthead{
+    border-right: solid 1px #ccc;
+}
+.lnchhead{
+    border-right: solid 1px #ccc;
+}
+.dnrhead{
+    /*font-size: 12px;
+    background: #eaeaea;*/
+}
+.timehead{
+    font-size: 10px;
+    background: #eaeaea;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+
+.timedesc{
+    font-size: 10px;
+    background: #f7f7f7;
+    text-transform: uppercase;
+    text-align: center;
+    border-top: solid 1px #e8e8e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.colopentxt{
+    color: #138446;
+}
+.colclosetxt{
+    color: #f00;
+}
+
+.blackboardbg{
+    
+--background: none !important;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../../assets/blackboard-texture_1205-375.jpg') !important;
+
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border: solid 7px #675604;
+    box-shadow: 0px 4px 2px 2px #ccc;
+    text-align: center;
+    color: #fff;
+    font-family: 'Fredericka the Great', cursive;
+    letter-spacing: 1px;
+}
+.daysnamelp{
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+.timesopncls{
+    font-size: 15px;
+    ul{
+        margin: 0;
+        padding: 0;
+        li{
+            list-style: none;
+            padding: 5px 0;
+            margin: 0;
+        }
+    }
+}
+
+.dayname{
+    /*font-size: 12px;*/
+    border-right: solid 1px #ccc;
+    font-weight: bold;
+}
+.bfasttime{
+    /*font-size: 12px;*/
+    border-right: solid 1px #e8e8e8;
+}
+.lnchtime{
+    /*font-size: 12px;*/
+    border-right: solid 1px #e8e8e8;
+}
+.dnrtime{
+    /*font-size: 12px;*/
+}

@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar class="header-background-color">
+  	 <ion-back-button slot="start"></ion-back-button>
+    <ion-title class="heaerfont">{{title}}</ion-title>
+    <ion-buttons slot="end" (click)='viewmycart()'>
+    	<div class="cartcount" *ngIf='cartcount'>
+    		{{cartcount}}
+    	</div>
+      <ion-icon name="cart-outline" clas='headerrighticon'></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+   
+   <div class="padcontr">
+    <div class="notcartitm" *ngIf='!isPrd'>
+      <img src="assets/shoppingEmpty.png"><p>{{trnslt.good_foodis_alwscok}}<br><span>{{trnslt.there_are_no_itm}}</span></p>
+      <div class="brwsmenu" (click)='backmenu()'><span>{{trnslt.brose_item}}</span></div>
+    </div>
+    <div *ngIf='isPrd'>
+      <div class="productlists" *ngFor="let item of allProducts">
+        <div class="outofstkstamp" *ngIf="item.isAvailable=='Sold Out'"><img src="assets/outofstock.png"></div>
+        <div [ngClass]="item.isAvailable ? 'allgrasccl': ''">
+         <div class="leftnameandother">
+           <div class="itemcntnt" (click)="openAlergyInfo(item)" *ngIf='item.alrgy'>
+             <img *ngFor="let cnt of item.contain" src="assets/foodcontain/{{cnt}}.png">
+           </div>
+           <div class="itemname" (click)="openDetailsItem(item)">
+             {{item.name}} <img src="assets/foodcontain/chili.png" *ngFor="let cl of item.chilli">
+           </div>
+           <div class="itemdesc" (click)="openDetailsItem(item)">
+             {{item.description}}
+           </div>
+           <div class="itemprice">
+             <span><code [innerHTML]='getappsetng?.currency_symbol'></code></span>{{item.itmprice}}
+           </div>
+         </div>
+
+
+
+
+         <div class="rightimgsnaothr">
+           <div class="itemimg">
+            <div class="prdimg">
+              <div class="pro_img">
+                <div class="cornertxt {{item.corner_text_css}}" *ngIf='item.corner_text'>
+                  {{item.corner_text}}
+                </div>
+                <img src="{{imgpath}}products/{{item.imgs[0]}}" (click)="openDetailsItem(item)">
+              </div>
+              
+              <div *ngIf='item.isAvailable' class="soldoutbtn">
+                {{item.isAvailable}}
+              </div>
+
+              <div *ngIf='!item.isAvailable'>
+                <div [style.display]="item.qty?'none':'inherit'" id="addcartbtn_{{item.id}}" class="cardbtn" (click)="addtoCart(item)">
+                  <ion-icon name="cart-outline"></ion-icon> {{item.crtbtn}}
+                </div>
+                <div [style.display]="!item.qty?'none':'inherit'" class="cartbtn" id="qtycartbtn_{{item.id}}">
+                  <span class="minusbtn" (click)="minusqty(item)"><ion-icon name="remove-outline"></ion-icon></span>
+                  <span class="qtyvalue" id="itmqty_{{item.id}}">{{item.qty}}</span>
+                  <span class="plusbtn" (click)="addqty(item)"><ion-icon name="add-outline"></ion-icon></span>
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
+         <div class="claer"></div>
+         </div>
+
+       </div>
+    </div>
+   </div>
+   
+
+</ion-content>
+<ion-footer class="ion-no-border myfootercart" *ngIf='cartcount'>
+  <div class="leftprice">
+    {{cartcount}} {{trnslt.itms}} | <code [innerHTML]='getappsetng?.currency_symbol'></code>{{carttotal}}<br>
+    <span>{{trnslt.extra_charge_mayh_aply}}</span>
+  </div>
+  <div class="viewcardbtn" (click)='viewmycart()'>
+    {{trnslt.view_cart}} <ion-icon name="cart-outline"></ion-icon>
+  </div>
+  <div class="clear"></div>
+</ion-footer>

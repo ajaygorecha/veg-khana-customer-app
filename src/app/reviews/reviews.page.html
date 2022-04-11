@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar class="header-background-color">
+  	 <ion-back-button slot="start"></ion-back-button>
+    <ion-title class="heaerfont">{{trnslt.review_rating}}</ion-title>
+    <ion-buttons slot="end" (click)='createreviews()'>
+      <ion-icon name="create-outline" clas='headerrighticon'></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+
+	 <div class="padcontr">
+	 	<div class="reviewvid" *ngFor="let item of allProducts">
+      <div class="reviername">
+        {{item.name}} <span *ngFor="let rtn of item.rtngs"><ion-icon name="{{rtn}}"></ion-icon></span> <span class="timeago">{{item.timeago}}</span>
+      </div>
+      <div class="reviewdesc">
+        {{item.reviews}}
+      </div>
+    </div>
+	 </div>
+
+</ion-content>

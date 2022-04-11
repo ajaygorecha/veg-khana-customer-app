@@ -1,0 +1,31 @@
+.addressbook{
+	width: 100%;
+	height: auto;
+	padding: 10px 15px;
+	border-bottom: solid 1px #f3f3f3;
+	.addrestype{
+		font-size: 14px;
+		font-weight: bold;
+		padding-bottom: 5px;
+    	text-transform: uppercase;
+	}
+	.addreline{
+		font-size: 13px;
+	}
+}
+.nolocation{
+	width: 100%;
+	height: auto;
+	padding: 25% 0;
+	text-align: center;
+	img{
+		width: 80%;
+	}
+}
+.moreforfree{
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	color: #F00;
+	padding: 15px 0;
+}

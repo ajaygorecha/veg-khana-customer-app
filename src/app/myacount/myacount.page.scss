@@ -1,0 +1,95 @@
+.sectiondiv{
+	width: 100%;
+	height: auto;
+	padding: 10px 15px;
+	background-color: #FFF;
+	font-size: 13px;
+	margin-bottom: 10px;
+	position: relative;
+	ion-icon{
+		position: absolute;
+	    right: 10px;
+	    top: 21px;
+	}
+	.sechead{
+		font-weight: bold;
+		margin-bottom: 4px;
+		span{
+			float: right;
+		    color: #417ad0;
+		    text-transform: uppercase;
+		}
+	}
+	.iconleft{
+		position: absolute;
+	    right: 9px;
+	    font-size: 25px;
+	    top: 15px;
+		ion-icon{
+			position: relative;
+		    right: 0;
+		    top: 0;
+		}
+	}
+	.secdesc{
+		color: #989696;
+	}
+	.secordprice{
+		color: #585656;
+	    border-top: dashed 1px #ccc;
+	    position: relative;
+	    padding: 5px 0;
+	    margin-top: 10px;
+	    b{
+	    	font-weight: normal;
+	    }
+		.deliverdgreen{
+			position: absolute;
+			right: 10px;
+			top: 0;
+			font-size: 11px;
+			ion-icon{
+				background-color: #3a8840;
+    			color: #fff;
+			}
+		}
+		span{
+			color: #9a9a9a;
+    		font-size: 11px;
+		}
+		.deliverdgreen{
+			position: absolute;
+		    right: 2px;
+		    top: auto;
+		    font-size: 10px;
+		    bottom: 7px;
+			ion-icon{
+				position: relative;
+			    right: -3px;
+			    top: 2px;
+			    border-radius: 100%;
+			    padding: 2px;
+			    font-size: 8px;
+			}
+		}
+		.pricespn{
+			color: #000;
+    		font-size: 14px;
+    		margin: 6px 0;
+		}
+		.reorderbtn{
+			width: 100%;
+			height: auto;
+			margin-top: 13px;
+			span{
+				border: solid 1px #8eadc3;
+			    padding: 5px 12px;
+			    text-transform: uppercase;
+			    letter-spacing: 1px;
+			    font-size: 10px;
+			    color: #8eadc3;
+			}
+		}
+	}
+
+}

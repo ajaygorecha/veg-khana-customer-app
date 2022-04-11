@@ -1,0 +1,29 @@
+<ion-content no-bounce has-bouncing="false" forceOverscroll="false">
+	<div class="imageitm">
+		<ion-slides pager="true" [options]="slideOpts">
+		   <ion-slide *ngFor="let imgtm of item.imgs">
+		       <img src="{{imgpath}}products/{{imgtm}}">
+		    </ion-slide>
+		</ion-slides>
+	</div>
+	<div class="conainfood" *ngIf='item.alrgy'>
+		<img *ngFor="let cnt of item.contain" src="assets/foodcontain/{{cnt}}.png">
+	</div>
+	<div class="temname">
+		{{item.name}} <img src="assets/foodcontain/chili.png" *ngFor="let cl of item.chilli">
+	</div>
+	
+	<div class="temdesc">
+		{{item.longdesc}}
+	</div>
+	<div class="temdescinfo" *ngIf='item.allergy_info'>
+		<strong>{{trnslt.allergy_info}} </strong>{{item.allergy_info}}
+	</div>
+	<div class="temdescinfo" *ngIf='item.supplier'>
+		<strong>{{trnslt.splr_mnfctr}}: </strong>{{item.supplier}}
+	</div>
+	<div class="priceandvegicn">
+		<span [innerHTML]='getappsetng?.currency_symbol'></span>{{item.price}}
+	</div>
+	
+</ion-content>

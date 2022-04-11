@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar class="header-background-color">
+  	 <ion-back-button slot="start"></ion-back-button>
+    <ion-title class="heaerfont">{{title}}</ion-title>
+    <ion-buttons slot="end" (click)='viewmycart()'>
+    	<div class="cartcount" *ngIf='cartcount'>
+    		{{cartcount}}
+    	</div>
+      <ion-icon name="cart-outline" clas='headerrighticon'></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+
+	 <div class="padcontr">
+	 	<!-- <div class="categorylists" *ngFor="let item of allProducts" (click)='gonext(item)'>
+	 		<div class="catimg">
+        <span><img src="{{imgpath}}category/{{item.icon}}"></span>
+      </div>
+      {{item.name}}<br><span>{{item.description}}</span>
+	 	</div> -->
+
+    <ion-item *ngFor="let item of allProducts" (click)='gonext(item)' class="categorylists">
+      <ion-thumbnail slot="start">
+        <img src="{{imgpath}}subcategory/{{item.icon}}">
+      </ion-thumbnail>
+      <ion-label>{{item.name}}<br><span>{{item.description}}</span></ion-label>
+    </ion-item>
+
+	 </div>
+
+</ion-content>

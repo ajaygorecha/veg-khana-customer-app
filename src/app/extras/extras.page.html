@@ -1,0 +1,38 @@
+<!-- <ion-header>
+  <ion-toolbar class="header-background-color">
+  	 <ion-back-button slot="start"></ion-back-button>
+    <ion-title class="heaerfont">Select Extra</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+	    <ion-refresher-content></ion-refresher-content>
+	 </ion-refresher>
+	<div class="padcontr backgrouwhite">
+		<div *ngFor="let item of extrs; let i = index">
+			<div class="extramain" id="extras_{{i}}">
+				<div class="extrimg">
+					<img src="{{imgpath}}/extra/{{item.image}}">
+				</div>
+				<div class="item_type" *ngIf='item.alrgy'>
+					<img *ngFor="let cnt of item.contain" src="assets/foodcontain/{{cnt}}.png">
+				</div>
+				<div class="itemname">
+		          {{item.name}} <img src="assets/foodcontain/chili.png" *ngFor="let cl of item.chilli">
+		        </div>
+		        <div class="itemdesc">
+		         {{item.longdesc}}
+		        </div>
+		        <div class="itemprice">
+		         <span [innerHTML]='getappsetng?.currency_symbol'></span>{{item.price}}
+		        </div>
+		        <div class="rightysadd" (click)="actionfornext(item, 'add')">{{trnslt.add}}</div>
+		        <div class="leftnothanks" (click)="actionfornext(item, 'nothanks')">{{trnslt.no_thanks}}</div>
+		        
+			</div>
+
+		</div>
+		
+	</div>
+</ion-content>

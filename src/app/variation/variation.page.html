@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{item.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="itemvariation">
+		<ul>
+			<li *ngFor="let item of dyndata" (click)='choosethis(item)'>{{item.name}} <span><code [innerHTML]='getappsetng?.currency_symbol'></code>{{item.price}}</span></li>
+		</ul>
+	</div>
+</ion-content>
